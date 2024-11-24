@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Criação dos cômodos
+
         ArrayList<Item> entradaItens = new ArrayList<>();
         Entrada entrada = new Entrada("Entrada", entradaItens);
 
@@ -21,23 +21,23 @@ public class Main {
         ArrayList<Item> ultimoAndarItens = new ArrayList<>();
         Ultimoandar ultimoAndar = new Ultimoandar("Último Andar", ultimoAndarItens);
 
-        // Conectar os cômodos
+
         entrada.setSaidas(null, sala, cozinha, null); // Norte, Leste, Sul, Oeste
         sala.setSaidas(entrada, null, null, null);
         cozinha.setSaidas(null, null, porao, entrada);
         porao.setSaidas(cozinha, null, ultimoAndar, null);
         ultimoAndar.setSaidas(porao, null, null, null);
 
-        // Criar o jogador
+
         Jogador jogador = new Jogador(entrada);
 
-        // Loop do jogo
+
         boolean jogando = true;
         while (jogando) {
             System.out.println("\n--- Menu ---");
             System.out.println("Você está no " + jogador.getLocalAtual().getNome());
             System.out.println("[1] Ver descrição do cômodo");
-            System.out.println("[2] Pegar item");
+            System.out.println("[2] Pegar item/interagir");
             System.out.println("[3] Mover para outro cômodo");
             System.out.println("[4] Ver inventário");
             System.out.println("[5] Sair");
